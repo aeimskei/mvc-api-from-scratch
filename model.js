@@ -55,9 +55,22 @@ function createDesigner(name, category, country) {
   designers.push(newDesigner)
   return newDesigner;
 }
+// TEST: http POST localhost:3000/designers name="Coke" category="Brand" country="America"
+
+function updateDesigner(id, name, category, country) {
+  const designer = designerById(id)
+
+  designer.name = name
+  designer.category = category
+  designer.country = country
+
+  return designer;
+}
+// http PUT localhost:3000/designers/6 name="Pepsi" category="Brand" country="America"
 
 module.exports = {
   allDesigners,
   designerById,
-  createDesigner
+  createDesigner,
+  updateDesigner
 }

@@ -27,8 +27,22 @@ const createDesigner = (req, res, next) => {
   res.status(201).json({data: designer})
 }
 
+const updateDesigner = (req, res, next) => {
+  const id = parseInt(req.params.id)
+  const {name, category, country} = req.body
+
+  if (!name || !category || !country) return next({status: 404, message: `Could not find the designer with id of ${id}`})
+
+  const designer = model.updateDesigner(id, name, category, country)
+
+  if (!designer) return next({status: 404, message: `Could not find the designer with id of ${id}`})
+
+  res.status(201).json({data: designer})
+}
+
 module.exports = {
   getAllDesigners,
   getDesignerById,
-  createDesigner
+  createDesigner,
+  updateDesigner
 }

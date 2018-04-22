@@ -13,6 +13,7 @@ app.use(bodyParser.json())
 app.get('/designers', controller.getAllDesigners)
 app.get('/designers/:id', controller.getDesignerById)
 app.post('/designers', controller.createDesigner)
+app.put('/designers/:id', controller.updateDesigner)
 
 // Error Handling
 app.use((err, req, res, next) => {
