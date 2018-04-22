@@ -36,3 +36,15 @@ const designers = [
     country: 'Germany'
   }
 ]
+
+function allDesigners() {
+  return designers;
+}
+// TEST: http GET localhost:3000/designers
+
+
+
+
+module.exports = {
+  allDesigners
+}
