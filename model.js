@@ -42,9 +42,13 @@ function allDesigners() {
 }
 // TEST: http GET localhost:3000/designers
 
-
+function designerById(id) {
+  const designer = designers.find(designer => designer.id === id)
+  return designer;
+}
 
 
 module.exports = {
-  allDesigners
+  allDesigners,
+  designerById
 }

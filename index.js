@@ -11,7 +11,7 @@ app.use(bodyParser.json())
 
 // Designer Routes
 app.get('/designers', controller.getAllDesigners)
-
+app.get('/designers/:id', controller.getDesignerById)
 
 // Error Handling
 app.use((err, req, res, next) => {
