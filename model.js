@@ -46,9 +46,18 @@ function designerById(id) {
   const designer = designers.find(designer => designer.id === id)
   return designer;
 }
+// TEST: http GET localhost:3000/designers/1
 
+function createDesigner(name, category, country) {
+  const nextID = designers.length + 1
+  const newDesigner = {id: nextID, name, category, country}
+  
+  designers.push(newDesigner)
+  return newDesigner;
+}
 
 module.exports = {
   allDesigners,
-  designerById
+  designerById,
+  createDesigner
 }

@@ -12,6 +12,7 @@ app.use(bodyParser.json())
 // Designer Routes
 app.get('/designers', controller.getAllDesigners)
 app.get('/designers/:id', controller.getDesignerById)
+app.post('/designers', controller.createDesigner)
 
 // Error Handling
 app.use((err, req, res, next) => {
