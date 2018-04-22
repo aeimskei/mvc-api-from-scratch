@@ -66,11 +66,22 @@ function updateDesigner(id, name, category, country) {
 
   return designer;
 }
-// http PUT localhost:3000/designers/6 name="Pepsi" category="Brand" country="America"
+// TEST: http PUT localhost:3000/designers/6 name="Pepsi" category="Brand" country="America"
+
+function deleteDesigner(id) {
+  const designer = designerById(id)
+  
+  const index = designers.indexOf(designer)
+  designers.splice(index, 1)
+
+  return designer;
+}
+// TEST: http DELETE localhost:3000/designers/6
 
 module.exports = {
   allDesigners,
   designerById,
   createDesigner,
-  updateDesigner
+  updateDesigner,
+  deleteDesigner
 }

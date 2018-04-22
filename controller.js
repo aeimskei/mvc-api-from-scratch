@@ -40,9 +40,19 @@ const updateDesigner = (req, res, next) => {
   res.status(201).json({data: designer})
 }
 
+const deleteDesigner = (req, res, next) => {
+  const id = parseInt(req.params.id)
+  const designer = model.deleteDesigner(id)
+
+  if(!designer) return next({status: 404, message: `Could not find ride with id of ${id}`})
+
+  res.status(200).json({data: designer})
+}
+
 module.exports = {
   getAllDesigners,
   getDesignerById,
   createDesigner,
-  updateDesigner
+  updateDesigner,
+  deleteDesigner
 }
